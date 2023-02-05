@@ -1,9 +1,7 @@
 UK_ROOT  ?= $(PWD)/../../unikraft
 UK_LIBS  ?= $(PWD)/../../libs
-UK_PLATS ?= $(PWD)/../../plats
-LIBS  := $(UK_LIBS)/testlib
-PLATS ?=
+LIBS := $(UK_LIBS)/newlib:$(UK_LIBS)/tlsf:$(UK_LIBS)/lwip:$(UK_LIBS)/testlib:$(UK_LIBS)/pthread-embedded
 all:
-	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS)
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS)
 $(MAKECMDGOALS):
-	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS) $(MAKECMDGOALS)
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) $(MAKECMDGOALS)
