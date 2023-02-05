@@ -1,0 +1,5 @@
+config APPTEST_DEPENDENCIES
+      bool
+      default y
+      select LIBTESTLIB
+
